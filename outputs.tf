@@ -22,10 +22,6 @@ output "default_subnets_cidr_block" {
   description = "Map of cidr_block values across all default_subnets, keyed the same as var.default_subnets"
   value       = { for k, v in aws_default_subnet.default_subnets : k => v.cidr_block if v.cidr_block != null && length(v.cidr_block) > 0 }
 }
-output "default_subnets_customer_owned_ipv4_pool" {
-  description = "Map of customer_owned_ipv4_pool values across all default_subnets, keyed the same as var.default_subnets"
-  value       = { for k, v in aws_default_subnet.default_subnets : k => v.customer_owned_ipv4_pool if v.customer_owned_ipv4_pool != null && length(v.customer_owned_ipv4_pool) > 0 }
-}
 output "default_subnets_enable_dns64" {
   description = "Map of enable_dns64 values across all default_subnets, keyed the same as var.default_subnets"
   value       = { for k, v in aws_default_subnet.default_subnets : k => v.enable_dns64 if v.enable_dns64 != null }
@@ -61,10 +57,6 @@ output "default_subnets_ipv6_cidr_block_association_id" {
 output "default_subnets_ipv6_native" {
   description = "Map of ipv6_native values across all default_subnets, keyed the same as var.default_subnets"
   value       = { for k, v in aws_default_subnet.default_subnets : k => v.ipv6_native if v.ipv6_native != null }
-}
-output "default_subnets_map_customer_owned_ip_on_launch" {
-  description = "Map of map_customer_owned_ip_on_launch values across all default_subnets, keyed the same as var.default_subnets"
-  value       = { for k, v in aws_default_subnet.default_subnets : k => v.map_customer_owned_ip_on_launch if v.map_customer_owned_ip_on_launch != null }
 }
 output "default_subnets_map_public_ip_on_launch" {
   description = "Map of map_public_ip_on_launch values across all default_subnets, keyed the same as var.default_subnets"
